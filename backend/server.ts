@@ -1,0 +1,19 @@
+const express = require("express");
+const connectDB = require("./config/db");
+const dotenv = require("dotenv").config();
+const cors = require('cors');
+
+const app = express();
+connectDB();
+
+app.use(cors('http://localhost:3000/'))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// app.use("/article", require("./routes/article.routes"));
+app.use("/page", require("./routes/page.routes"));
+app.use("/sheet", require("./routes/sheet.routes"));
+app.use("/note", require("./routes/note.routes"));
+app.use("/user", require("./routes/user.routes"));
+
+app.listen(5001, () => console.log("Le serveur a démarré au port " + 5001));
