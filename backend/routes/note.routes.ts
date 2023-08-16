@@ -11,11 +11,11 @@ const {
 } = require("../controllers/note.controller");
 const auth = require("../middleware/auth");
 
-router.get("/", getAllNotes);
-router.get("/:id", getOneNote);
-router.post("/", postNote);
-router.put("/:id", putNote);
-router.delete("/:id", deleteNote);
-router.post("/reorder", postNoteOrder);
+router.get("/", auth, getAllNotes);
+router.get("/:id", auth, getOneNote);
+router.post("/", auth, postNote);
+router.put("/:id", auth, putNote);
+router.delete("/:id", auth, deleteNote);
+router.post("/reorder", auth, postNoteOrder);
 
 module.exports = router;

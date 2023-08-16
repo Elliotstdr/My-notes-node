@@ -11,11 +11,11 @@ const {
 } = require("../controllers/page.controller");
 const auth = require("../middleware/auth");
 
-router.get("/", getAllPages);
-router.get("/:id", getOnePage);
-router.post("/", postPage);
-router.put("/:id", putPage);
-router.delete("/:id", deletePage);
-router.post("/reorder", postPageOrder);
+router.get("/", auth, getAllPages);
+router.get("/:id", auth, getOnePage);
+router.post("/", auth, postPage);
+router.put("/:id", auth, putPage);
+router.delete("/:id", auth, deletePage);
+router.post("/reorder", auth, postPageOrder);
 
 module.exports = router;

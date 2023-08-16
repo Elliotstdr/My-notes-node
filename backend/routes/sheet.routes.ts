@@ -11,11 +11,11 @@ const {
 } = require("../controllers/sheet.controller");
 const auth = require("../middleware/auth");
 
-router.get("/", getAllSheets);
-router.get("/:id", getOneSheet);
-router.post("/", postSheet);
-router.put("/:id", putSheet);
-router.delete("/:id", deleteSheet);
-router.post("/reorder", postSheetOrder);
+router.get("/", auth, getAllSheets);
+router.get("/:id", auth, getOneSheet);
+router.post("/", auth, postSheet);
+router.put("/:id", auth, putSheet);
+router.delete("/:id", auth, deleteSheet);
+router.post("/reorder", auth, postSheetOrder);
 
 module.exports = router;
