@@ -7,8 +7,8 @@ const {
   putNote,
   deleteNote,
   postNoteOrder
-} = require("../controllers/note.controller.ts");
-const nAuth = require("../middleware/auth.ts");
+} = require("../controllers/note.controller");
+const nAuth = require("../middleware/auth");
 
 nRouter.get("/", nAuth, getAllNotes);
 nRouter.get("/:id", nAuth, getOneNote);

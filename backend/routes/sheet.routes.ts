@@ -7,8 +7,8 @@ const {
   putSheet,
   deleteSheet,
   postSheetOrder
-} = require("../controllers/sheet.controller.ts");
-const sAuth = require("../middleware/auth.ts");
+} = require("../controllers/sheet.controller");
+const sAuth = require("../middleware/auth");
 
 sRouter.get("/", sAuth, getAllSheets);
 sRouter.get("/:id", sAuth, getOneSheet);

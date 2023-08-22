@@ -1,6 +1,6 @@
-const PageModel = require("../models/page.model.ts");
-const SheetModel = require("../models/sheet.model.ts");
-const pNoteModel = require("../models/note.model.ts");
+const PageModel = require("../models/page.model");
+const SheetModel = require("../models/sheet.model");
+const pNoteModel = require("../models/note.model");
 
 // Façon openClassroom
 module.exports.getAllPages = async (req: any, res: any) => {

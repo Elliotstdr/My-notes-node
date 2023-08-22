@@ -1,4 +1,4 @@
-const NoteModel = require("../models/note.model.ts");
+const NoteModel = require("../models/note.model");
 
 // Façon openClassroom
 module.exports.getAllNotes = async (req: any, res: any) => {

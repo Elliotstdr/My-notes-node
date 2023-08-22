@@ -7,8 +7,8 @@ const {
   putPage,
   deletePage,
   postPageOrder
-} = require("../controllers/page.controller.ts");
-const pAuth = require("../middleware/auth.ts");
+} = require("../controllers/page.controller");
+const pAuth = require("../middleware/auth");
 
 pRouter.get("/", pAuth, getAllPages);
 pRouter.get("/:id", pAuth, getOnePage);
