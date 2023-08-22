@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 connectDB();
 
-app.use(cors('http://localhost:3000/'))
+app.use(cors(process.env.FRONTEND_URL))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
