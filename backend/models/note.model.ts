@@ -1,12 +1,10 @@
-export {};
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const nMongoose = require("mongoose");
 
-const noteSchema = mongoose.Schema(
+const noteSchema = nMongoose.Schema(
   {
     label: { type: String, required: true },
     content: { type: String },
-    sheet: { type: Schema.Types.ObjectId, ref: 'sheet', required: true },
+    sheet: { type: nMongoose.Schema.Types.ObjectId, ref: 'sheet', required: true },
     order: { type: Number},
   },
   {
@@ -14,4 +12,4 @@ const noteSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("note", noteSchema);
+module.exports = nMongoose.model("note", noteSchema);

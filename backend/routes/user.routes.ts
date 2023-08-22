@@ -1,9 +1,8 @@
-export {};
-const express = require("express");
-const { signUp, login } = require("../controllers/user.controller");
-const router = express.Router();
+const uExpress = require("express");
+const { signUp, login } = require("../controllers/user.controller.ts");
+const uRouter = uExpress.Router();
 
-router.post("/signup", signUp);
-router.post("/login", login);
+uRouter.post("/signup", signUp);
+uRouter.post("/login", login);
 
-module.exports = router;
+module.exports = uRouter;

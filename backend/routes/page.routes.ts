@@ -1,6 +1,5 @@
-export {};
-const express = require("express");
-const router = express.Router();
+const pExpress = require("express");
+const pRouter = pExpress.Router();
 const {
   postPage,
   getAllPages,
@@ -8,14 +7,14 @@ const {
   putPage,
   deletePage,
   postPageOrder
-} = require("../controllers/page.controller");
-const auth = require("../middleware/auth");
+} = require("../controllers/page.controller.ts");
+const pAuth = require("../middleware/auth.ts");
 
-router.get("/", auth, getAllPages);
-router.get("/:id", auth, getOnePage);
-router.post("/", auth, postPage);
-router.put("/:id", auth, putPage);
-router.delete("/:id", auth, deletePage);
-router.post("/reorder", auth, postPageOrder);
+pRouter.get("/", pAuth, getAllPages);
+pRouter.get("/:id", pAuth, getOnePage);
+pRouter.post("/", pAuth, postPage);
+pRouter.put("/:id", pAuth, putPage);
+pRouter.delete("/:id", pAuth, deletePage);
+pRouter.post("/reorder", pAuth, postPageOrder);
 
-module.exports = router;
+module.exports = pRouter;

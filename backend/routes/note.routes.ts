@@ -1,6 +1,5 @@
-export {};
-const express = require("express");
-const router = express.Router();
+const nExpress = require("express");
+const nRouter = nExpress.Router();
 const {
   postNote,
   getAllNotes,
@@ -8,14 +7,14 @@ const {
   putNote,
   deleteNote,
   postNoteOrder
-} = require("../controllers/note.controller");
-const auth = require("../middleware/auth");
+} = require("../controllers/note.controller.ts");
+const nAuth = require("../middleware/auth.ts");
 
-router.get("/", auth, getAllNotes);
-router.get("/:id", auth, getOneNote);
-router.post("/", auth, postNote);
-router.put("/:id", auth, putNote);
-router.delete("/:id", auth, deleteNote);
-router.post("/reorder", auth, postNoteOrder);
+nRouter.get("/", nAuth, getAllNotes);
+nRouter.get("/:id", nAuth, getOneNote);
+nRouter.post("/", nAuth, postNote);
+nRouter.put("/:id", nAuth, putNote);
+nRouter.delete("/:id", nAuth, deleteNote);
+nRouter.post("/reorder", nAuth, postNoteOrder);
 
-module.exports = router;
+module.exports = nRouter;

@@ -1,5 +1,5 @@
-const sheetModel = require("../models/sheet.model");
-const noteModel = require("../models/note.model")
+const sheetModel = require("../models/sheet.model.ts");
+const noteModel = require("../models/note.model.ts")
 
 // Façon openClassroom
 module.exports.getAllSheets = async (req: any, res: any) => {

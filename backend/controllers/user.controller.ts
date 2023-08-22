@@ -1,7 +1,6 @@
-export {};
-const userModel = require("../models/user.model");
+const userModel = require("../models/user.model.ts");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const uJwt = require("jsonwebtoken");
 
 module.exports.signUp = async (req: any, res: any) => {
   await bcrypt
@@ -38,7 +37,7 @@ module.exports.login = async (req: any, res: any) => {
           }
           res.status(200).json({
             userId: user._id,
-            token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+            token: uJwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
               expiresIn: "24h",
             }),
           });

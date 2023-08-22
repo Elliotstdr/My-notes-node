@@ -1,11 +1,9 @@
-export {};
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const sMongoose = require("mongoose");
 
-const sheetSchema = mongoose.Schema(
+const sheetSchema = sMongoose.Schema(
   {
     label: { type: String, required: true },
-    page: { type: Schema.Types.ObjectId, ref: 'page', required: true },
+    page: { type: sMongoose.Schema.Types.ObjectId, ref: 'page', required: true },
     order: { type: Number},
   },
   {
@@ -13,4 +11,4 @@ const sheetSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("sheet", sheetSchema);
+module.exports = sMongoose.model("sheet", sheetSchema);

@@ -1,7 +1,7 @@
 export{}
-const PageModel = require("../models/page.model");
-const SheetModel = require("../models/sheet.model");
-const NoteModel = require("../models/note.model");
+const PageModel = require("../models/page.model.ts");
+const SheetModel = require("../models/sheet.model.ts");
+const NoteModel = require("../models/note.model.ts");
 
 // Façon openClassroom
 module.exports.getAllPages = async (req: any, res: any) => {

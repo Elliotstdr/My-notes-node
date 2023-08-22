@@ -1,7 +1,6 @@
-export {};
-const mongoose = require("mongoose");
+const pMongoose = require("mongoose");
 
-const pageSchema = mongoose.Schema(
+const pageSchema = pMongoose.Schema(
   {
     label: { type: String, required: true },
     order: { type: Number },
@@ -11,4 +10,4 @@ const pageSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("page", pageSchema);
+module.exports = pMongoose.model("page", pageSchema);

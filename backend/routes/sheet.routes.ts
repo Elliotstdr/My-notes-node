@@ -1,6 +1,5 @@
-export {};
-const express = require("express");
-const router = express.Router();
+const sExpress = require("express");
+const sRouter = sExpress.Router();
 const {
   postSheet,
   getAllSheets,
@@ -8,14 +7,14 @@ const {
   putSheet,
   deleteSheet,
   postSheetOrder
-} = require("../controllers/sheet.controller");
-const auth = require("../middleware/auth");
+} = require("../controllers/sheet.controller.ts");
+const sAuth = require("../middleware/auth.ts");
 
-router.get("/", auth, getAllSheets);
-router.get("/:id", auth, getOneSheet);
-router.post("/", auth, postSheet);
-router.put("/:id", auth, putSheet);
-router.delete("/:id", auth, deleteSheet);
-router.post("/reorder", auth, postSheetOrder);
+sRouter.get("/", sAuth, getAllSheets);
+sRouter.get("/:id", sAuth, getOneSheet);
+sRouter.post("/", sAuth, postSheet);
+sRouter.put("/:id", sAuth, putSheet);
+sRouter.delete("/:id", sAuth, deleteSheet);
+sRouter.post("/reorder", sAuth, postSheetOrder);
 
-module.exports = router;
+module.exports = sRouter;
