@@ -1,7 +1,6 @@
-export{}
 const PageModel = require("../models/page.model.ts");
 const SheetModel = require("../models/sheet.model.ts");
-const NoteModel = require("../models/note.model.ts");
+const pNoteModel = require("../models/note.model.ts");
 
 // Façon openClassroom
 module.exports.getAllPages = async (req: any, res: any) => {
@@ -90,5 +89,5 @@ const deleteChildren = async (pageId: string) => {
   const sheets = await SheetModel.find({ page: pageId }, '_id');
   const sheetIds = sheets.map((sheet: Sheet) => sheet._id);
   // Supprimez toutes les entités Note liées aux Sheets supprimées
-  await NoteModel.deleteMany({ sheet: { $in: sheetIds } });
+  await pNoteModel.deleteMany({ sheet: { $in: sheetIds } });
 }
