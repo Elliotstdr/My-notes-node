@@ -11,21 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const uJwt = require("jsonwebtoken");
-module.exports.signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield bcrypt
-        .hash(req.body.password, 10)
-        .then((hash) => {
-        const user = new userModel({
-            email: req.body.email,
-            password: hash,
-        });
-        user
-            .save()
-            .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-            .catch((error) => res.status(400).json({ error }));
-    })
-        .catch((error) => res.status(500).json({ error }));
-});
+// module.exports.signUp = async (req: any, res: any) => {
+//   await bcrypt
+//     .hash(req.body.password, 10)
+//     .then((hash: string) => {
+//       const user = new userModel({
+//         email: req.body.email,
+//         password: hash,
+//       });
+//       user
+//         .save()
+//         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
+//         .catch((error: any) => res.status(400).json({ error }));
+//     })
+//     .catch((error: any) => res.status(500).json({ error }));
+// };
 module.exports.login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield userModel
         .findOne({ email: req.body.email })
