@@ -6,6 +6,8 @@ const sheetSchema = sMongoose.Schema({
     order: { type: Number },
 }, {
     versionKey: false,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
 });
 module.exports = sMongoose.model("sheet", sheetSchema);
 //# sourceMappingURL=sheet.model.js.map

@@ -7,6 +7,8 @@ const noteSchema = nMongoose.Schema({
     order: { type: Number },
 }, {
     versionKey: false,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
 });
 module.exports = nMongoose.model("note", noteSchema);
 //# sourceMappingURL=note.model.js.map

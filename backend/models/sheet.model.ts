@@ -8,6 +8,8 @@ const sheetSchema = sMongoose.Schema(
   },
   {
     versionKey: false,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
   }
 );
 
