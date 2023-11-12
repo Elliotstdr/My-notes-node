@@ -76,7 +76,7 @@ module.exports.postSheetOrder = (req, res) => __awaiter(void 0, void 0, void 0, 
     try {
         const updates = req.body;
         const updatePromises = updates.map((update) => {
-            return sheetModel.findByIdAndUpdate(update._id, update, { new: true }).populate('page');
+            return sheetModel.findByIdAndUpdate(update.id, update, { new: true }).populate('page');
         });
         const updatedSheets = yield Promise.all(updatePromises);
         res.status(200).json({ sheets: updatedSheets });

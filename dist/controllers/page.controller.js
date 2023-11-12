@@ -72,7 +72,7 @@ module.exports.postPageOrder = (req, res) => __awaiter(void 0, void 0, void 0, f
     try {
         const updates = req.body;
         const updatePromises = updates.map((update) => {
-            return PageModel.findByIdAndUpdate(update._id, update, { new: true });
+            return PageModel.findByIdAndUpdate(update.id, update, { new: true });
         });
         const updatedPages = yield Promise.all(updatePromises);
         res.status(200).json({ pages: updatedPages });
@@ -82,11 +82,11 @@ module.exports.postPageOrder = (req, res) => __awaiter(void 0, void 0, void 0, f
     }
 });
 const deleteChildren = (pageId) => __awaiter(void 0, void 0, void 0, function* () {
-    yield SheetModel.deleteMany({ page: pageId });
     // Trouvez toutes les entités Note liées aux Sheets supprimées
     const sheets = yield SheetModel.find({ page: pageId }, '_id');
     const sheetIds = sheets.map((sheet) => sheet._id);
     // Supprimez toutes les entités Note liées aux Sheets supprimées
     yield pNoteModel.deleteMany({ sheet: { $in: sheetIds } });
+    yield SheetModel.deleteMany({ page: pageId });
 });
 //# sourceMappingURL=page.controller.js.map
