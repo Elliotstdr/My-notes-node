@@ -72,8 +72,8 @@ module.exports.postPageOrder = async (req: any, res: any) => {
   try {
     const updates = req.body;
 
-    const updatePromises = updates.map((update: Page) => {
-      return PageModel.findByIdAndUpdate(update._id, update, { new: true });
+    const updatePromises = updates.map((update: any) => {
+      return PageModel.findByIdAndUpdate(update.id, update, { new: true });
     });
     const updatedPages = await Promise.all(updatePromises);
 
@@ -84,10 +84,10 @@ module.exports.postPageOrder = async (req: any, res: any) => {
 };
 
 const deleteChildren = async (pageId: string) => {
-  await SheetModel.deleteMany({ page: pageId });
   // Trouvez toutes les entités Note liées aux Sheets supprimées
   const sheets = await SheetModel.find({ page: pageId }, '_id');
   const sheetIds = sheets.map((sheet: Sheet) => sheet._id);
   // Supprimez toutes les entités Note liées aux Sheets supprimées
   await pNoteModel.deleteMany({ sheet: { $in: sheetIds } });
+  await SheetModel.deleteMany({ page: pageId });
 }

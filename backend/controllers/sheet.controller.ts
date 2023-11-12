@@ -74,8 +74,8 @@ module.exports.deleteSheet = async (req: any, res: any) => {
 module.exports.postSheetOrder = async (req: any, res: any) => {
   try {
     const updates = req.body;
-    const updatePromises = updates.map((update: Sheet) => {
-      return sheetModel.findByIdAndUpdate(update._id, update, { new: true }).populate('page');
+    const updatePromises = updates.map((update: any) => {
+      return sheetModel.findByIdAndUpdate(update.id, update, { new: true }).populate('page');
     });
     const updatedSheets = await Promise.all(updatePromises);
 
